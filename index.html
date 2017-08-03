@@ -27,7 +27,7 @@
 				height: 300px;
 				list-style: none;
 				position:absolute;
-				transition:all 0.1s ;
+				/*transition:all 0.1s ;*/
 			}
 			li{
 				width:20%;
@@ -62,6 +62,7 @@
 		var oleft=0;
 		var n=0;
 		list.addEventListener("touchstart",function(ev){
+			list.style.webkitTransition="none";
 			ev.preventDefault();
 			var ex=ev.changedTouches[0].pageX;
 			oleft=this.offsetLeft;
@@ -71,9 +72,10 @@
 				list.style.left=oleft+dis+"px";
 			})
 			list.addEventListener("touchend",function(ev){
+				list.style.webkitTransition="all 200ms";
 				n=Math.round(this.offsetLeft/w);
 				if(n>0){
-						n=0;
+					n=0;
 				} else if(n<-(lis.length-1)){
 					n=-(lis.length-1);
 				}
