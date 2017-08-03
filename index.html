@@ -61,6 +61,9 @@
 		var w=parseInt(getStyle(lis[0],"width"));
 		var oleft=0;
 		var n=0;
+		document.addEventListener("touchmove",function(ev){
+			ev.preventDefault();
+		})
 		list.addEventListener("touchstart",function(ev){
 			list.style.webkitTransition="none";
 			ev.preventDefault();
